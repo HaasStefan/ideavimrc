@@ -1,0 +1,178 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+:set relativenumber
+:set number
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+Plug 'tpope/vim-surround'
+
+Plug 'preservim/nerdtree'
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+"" -- Custom key mappings --
+"" https://www.youtube.com/watch?v=WwO18Ag_xno&ab_channel=IgorBabko
+
+
+" leader key
+let mapleader = ' '
+
+" move to the next character occurrence
+noremap ' ;
+
+" redo
+noremap U <C-r>
+
+" map black whole register
+noremap \ "_
+
+" paste over without overwriting default register
+xnoremap p P
+
+" sync Vim clipboard with OS clipboard
+set clipboard^=unnamed,unnamedplus
+
+" jump between angle brackets
+set matchpairs+=<:>
+
+" smart line joining
+set ideajoin
+
+" open config
+noremap <leader>cc :edit ~/.ideavimrc<cr>
+
+" source config
+noremap <leader>cs :source ~/.ideavimrc<cr>:nohlsearch<cr>
+
+" highlight search results
+set hlsearch
+
+" remove search highlights
+nnoremap <Esc> :nohlsearch<cr>
+
+" case-insensitive search
+set ignorecase
+
+" enable case-sensitive search when uppercased letter is present
+set smartcase
+
+" search while typing
+set incsearch
+
+map <leader>tt :action ActivateTerminalToolWindow<CR>
+map <leader>pp :action ActivateProjectToolWindow<CR>  
+
+" go to the left split
+map <A-h> <C-w>h
+
+" go to the bottom split
+map <A-j> <C-w>j
+
+" go to the top split
+map <A-k> <C-w>k
+
+" go to the right split
+map <A-l> <C-w>l
+
+map <leader>wv <Action>(SplitVertically)
+map <leader>wh <Action>(SplitHorizontally)
+map <leader>ww <Action>(Unsplit)
+map <leader>wa <Action>(UnsplitAll)
+
+map <leader>sc <Action>(GotoClass)
+map <leader>sf <Action>(GotoFile)
+map <leader>ss <Action>(GotoSymbol)
+map <leader>sa <Action>(GotoAction)
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gy <Action>(GotoTypeDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gt <Action>(GotoTest)
+map <leader>gm <Action>(GotoSuperMethod)
+map <leader>gl <Action>(GotoLine)
+
+map <leader>ug <Action>(FindUsages)
+map <leader>uu <Action>(ShowUsages)
+map <leader>vs <Action>(ViewSource)
+map <leader>im <Action>(QuickImplementations)
+map <leader>td <Action>(QuickTypeDefinition)
+map <leader>ti <Action>(ExpressionTypeInfo)
+map <leader>sh <Action>(ShowHoverInfo)
+map <leader>oo <Action>(FileStructurePopup)
+
+map <S-f> <Action>(Find)
+map <S-r> <Action>(Replace)
+map <leader>ff <Action>(FindInPath)
+map <leader>fr <Action>(ReplaceInPath)
+
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+map <leader>aa <Action>(ShowIntentionActions)
+map <leader>sw <Action>(SurroundWith)
+map <S-space> <Action>(Generate)
+map <S-k> <Action>(EditorDuplicateLines)
+map <C-[> <Action>(EditorCompleteStatement)
+
+map <leader>en <Action>(GotoNextError)
+map <leader>ep <Action>(GotoPreviousError)
+map <leader>lc <Action>(JumpToLastChange)
+map <leader>ll <Action>(RecentLocations)
+map <C-;> <Action>(RecentFiles)
+map <S-k> <Action>(Forward)
+map <S-l> <Action>(Back)
+map <A-[> <Action>(MethodUp)
+map <A-]> <Action>(MethodDown)
+
+map <leader><leader> <Action>(ReformatCode)
+map <leader>oi <Action>(OptimizeImports)
+map <leader>ra <Action>(RearrangeCode)
+
+map <C-k> <Action>(MoveLineDown)
+map <C-l> <Action>(MoveLineUp)
+map <C-i> <Action>(MoveStatementDown)
+map <C-o> <Action>(MoveStatementUp)
+map <leader>ca <Action>(CopyAbsolutePath)
+map <leader>cn <Action>(CopyFileName)
+map <leader>cp <Action>(CopyContentRootPath)
+
+map <leader>fs <Action>(NewScratchFile)
+map <leader>qq <Action>(CloseContent)
+map <leader>qa <Action>(CloseAllEditors)
+map <leader>nf <Action>(NewFile)
+map <leader>nd <Action>(NewDir)
+map <leader>re <Action>(RenameFile)
+map <leader>of <Action>(OpenFile)
+map <leader>ri <Action>(RestartIde)
